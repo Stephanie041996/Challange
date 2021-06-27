@@ -1,22 +1,5 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Word:</strong>
-  <%= @word.word %>
-</p>
-
-<p>
-  <strong>Length:</strong>
-  <%= @word.sub_length %>
-</p>
-
-<p>
-  <strong>Sub word:</strong>
-  <%= @word.sub_word %>
-</p>
-
-
-
+<%= render 'form', word: @word %>
 <table>
   <thead>
     <tr>
@@ -38,7 +21,7 @@
     <% end %>
   </tbody>
 </table>
-<%= render 'form', word: @word %>
+
 
 
 <%= link_to 'Back', new_word_path  %>
