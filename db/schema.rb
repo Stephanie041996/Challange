@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_27_073212) do
+ActiveRecord::Schema.define(version: 2021_06_27_190959) do
 
   create_table "words", force: :cascade do |t|
     t.string "word"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_06_27_073212) do
     t.integer "sub_length"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_words_on_slug", unique: true
   end
 
 end

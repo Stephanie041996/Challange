@@ -30,7 +30,7 @@ end
  
     def set_word
     #   @word = Word.find(params[:id])
-    @word = Word.find_by(word: params[:id])
+    @word = Word.find_by_slug(params[:id])
     end
 
   
