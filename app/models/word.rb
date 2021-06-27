@@ -1,4 +1,5 @@
 class Word < ApplicationRecord
+  validates :word, presence: true, uniqueness: true, length: { maximum: 35 }
   default_scope -> { order(created_at: :desc) }
 
  def to_param
