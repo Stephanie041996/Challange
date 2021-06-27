@@ -1,0 +1,11 @@
+<%= form_with(model: word) do |form| %>
+<div class="mb-3 pt-3">
+  <label for="formGroupExampleInput" class="form-label">  <%= form.label :word %></label>
+  <div>
+    <%= form.text_field :word %>
+   </div>
+</div>
+  <div class="col-auto">
+   <%= form.submit %>
+  </div>
+  <%end%>
