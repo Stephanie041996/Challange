@@ -7,12 +7,12 @@ class WordsController < ApplicationController
 @word = Word.new
 end
     
-    def new
+    def show
+      @words = Word.all
       @word = Word.new
     end
 
-    def show
-      @words = Word.all
+    def new
       @word = Word.new
     end
 
@@ -20,7 +20,7 @@ end
         @word = Word.new(word_params)
         if @word.save
 
-            redirect_to words_path
+            redirect_to @word
           else
             render 'new'
           end
