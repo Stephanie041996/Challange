@@ -9,11 +9,11 @@ end
     
     def new
       @word = Word.new
-        @word = Word.new
     end
 
     def show
       @words = Word.all
+      @word = Word.new
     end
 
     def create
