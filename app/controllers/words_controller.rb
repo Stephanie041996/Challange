@@ -1,14 +1,19 @@
 class WordsController < ApplicationController
-    def index
-        @words = Word.all
-        @word = Word.new
-    end
+    before_action :set_word, only: %i[ show edit update destroy ]
+    
+   def index
+
+@words = Word.all
+@word = Word.new
+end
     
     def new
+      @word = Word.new
         @word = Word.new
     end
 
     def show
+      @words = Word.all
     end
 
     def create
@@ -22,12 +27,15 @@ class WordsController < ApplicationController
     end
 
     private
+ 
     def set_word
-        @word = Word.find(params[:id])
-      end
+    #   @word = Word.find(params[:id])
+    @word = Word.find_by(word: params[:id])
+    end
+
   
     def word_params
-      params.require(:word).permit(:word, :length, :sub_word)
+      params.require(:word).permit(:word, :sub_length, :sub_word)
     end
-  
 end
+  
