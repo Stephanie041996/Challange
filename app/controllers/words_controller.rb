@@ -1,6 +1,7 @@
 class WordsController < ApplicationController
     def index
         @words = Word.all
+        @word = Word.new
     end
     
     def new
@@ -14,13 +15,17 @@ class WordsController < ApplicationController
         @word = Word.new(word_params)
         if @word.save
 
-            redirect_to @word
+            redirect_to words_path
           else
             render 'new'
           end
     end
 
     private
+    def set_word
+        @word = Word.find(params[:id])
+      end
+  
     def word_params
       params.require(:word).permit(:word, :length, :sub_word)
     end
