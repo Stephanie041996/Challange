@@ -1,0 +1,32 @@
+ <% if flash[:messages] %>
+ <div class="container-fluid bg-warning ">
+  <h3 class="text-center"><%= flash[:messages] %></h3>
+  </div>
+ <% end %>
+<%= render 'form', word: @word %>
+<div class="container d-flex justify-content-center align-items-center col-md-8">
+<table class="table table-bordered  table-hover mt-2">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Word</th>
+      <th scope="col">Length</th>
+      <th scope="col">Sub word</th>
+    
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><strong><%= word.word %></strong></td>
+        <td><%= word.sub_length %></td>
+        <td><%= word.sub_word %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<div class="actions w-100 mt-1  mb-4 d-flex justify-content-center ">
+
+<%= link_to 'Back', new_word_path, class: " btn btn-dark"  %>
+</div>
