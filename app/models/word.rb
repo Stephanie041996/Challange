@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Word < ApplicationRecord
-  validates :word, presence: true, uniqueness: true, length: { maximum: 35 }
-  validates :slug, presence: true, uniqueness: true
+  validates :word, uniqueness: true, length: { maximum: 35 }
+  validates :slug, uniqueness: true
   default_scope -> { order(created_at: :desc) }
   before_validation :generate_slug
 
@@ -43,10 +43,8 @@ class Word < ApplicationRecord
       i += 1
     end
 
-    if result < i - start
-      result = i - start
-      longest_sub_word = string[start..i - 1]
-    end
+    longest_sub_word = string[start..i - 1] if result < i - start
+
     longest_sub_word
   end
 
