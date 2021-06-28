@@ -1,5 +1,9 @@
 class WordsController < ApplicationController
-    before_action :set_word, only: [:show]
+    before_action :set_word, only: %i[ show destroy ]
+    
+   def index
+    @word = Word.new
+end
     
     def show
       @words = Word.all
