@@ -1,7 +1,8 @@
 class Word < ApplicationRecord
   validates :word, presence: true, uniqueness: true, length: { maximum: 35 }
+  validates :slug, presence: true, uniqueness: true
   default_scope -> { order(created_at: :desc) }
-before_save :generate_slug
+before_validation :generate_slug
 
  def to_param
       slug

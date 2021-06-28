@@ -19,9 +19,10 @@ end
     def create
         @word = Word.new(word_params)
         if @word.save
-
-            redirect_to @word
+          flash[:notice] = "Word successfully created"
+           redirect_to @word
           else
+            flash.now[:messages] = @word.errors.full_messages[0]
             render 'new'
           end
     end

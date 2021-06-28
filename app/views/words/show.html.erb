@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+
+ <% if flash[:messages] %>
+   <h2><%= flash[:messages] %></h2>
+ <% end %>
 <%= render 'form', word: @word %>
 <table>
   <thead>
