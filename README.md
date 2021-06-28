@@ -7,7 +7,7 @@
 -  View page with form and all entered words sorted in order of most recent.
 -  Enter a word and get a return on the longest substring with no repeats and length of substring
 -  The url link also changes and shows the entered word.
--  Validations in place, You may not enter a word that already has been entered or leave the word option blank, and words are limited to a length of 35.
+-  Validations in place, You may not enter a word that already has been entered and words are limited to a length of 35.
 
 ## Built With
 

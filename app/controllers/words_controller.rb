@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class WordsController < ApplicationController
-  before_action :set_word, only: %i[show destroy]
+  before_action :set_word, only: [:show]
 
   def index
     @word = Word.new
@@ -28,7 +30,6 @@ class WordsController < ApplicationController
   private
 
   def set_word
-    #   @word = Word.find(params[:id])
     @word = Word.find_by_slug(params[:id])
   end
 
