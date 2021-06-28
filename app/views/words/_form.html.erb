@@ -1,11 +1,20 @@
+
+<div class="container mt-2">
+<div class="row d-flex justify-content-center align-items-center bg-light">
+<div class="col-md-4 mt-4">
+<h3 class="text-center">Longest substring solver</h3>
+<p>This app will take any given word and look for the longest substring without repeating characters</p>
 <%= form_with(model: word) do |form| %>
 <div class="mb-3 pt-3">
-  <label for="formGroupExampleInput" class="form-label">  <%= form.label :word %></label>
+
   <div>
-    <%= form.text_field :word %>
+    <%= form.text_field :word, placeholder: "word...", class: "w-100 mt-4"  %>
    </div>
 </div>
-  <div class="col-auto">
+    <div class="actions w-100 mt-2 mb-4 d-flex justify-content-center ">
    <%= form.submit %>
   </div>
   <%end%>
+</div>
+</div>
+</div>
