@@ -4,12 +4,14 @@ class WordsController < ApplicationController
   before_action :set_word, only: [:show]
 
   def index
+    @words = Word.all
     @word = Word.new
   end
 
   def show
     @words = Word.all
     @word = Word.new
+    @word = Word.find_by_slug(params[:id])
   end
 
   def new
@@ -18,13 +20,10 @@ class WordsController < ApplicationController
 
   def create
     @word = Word.new(word_params)
-    if @word.save
-      flash[:notice] = 'Word successfully created'
-      redirect_to @word
-    else
-      flash.now[:messages] = @word.errors.full_messages[0]
-      render 'new'
-    end
+     @word.save
+      flash.keep[:messages] = @word.errors.full_messages[0] 
+
+       redirect_to @word
   end
 
   private
