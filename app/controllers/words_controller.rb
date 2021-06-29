@@ -20,10 +20,10 @@ class WordsController < ApplicationController
 
   def create
     @word = Word.new(word_params)
-     @word.save
-      flash.keep[:messages] = @word.errors.full_messages[0] 
+    @word.save
+    flash.keep[:messages] = @word.errors.full_messages[0]
 
-       redirect_to @word
+    redirect_to @word
   end
 
   private

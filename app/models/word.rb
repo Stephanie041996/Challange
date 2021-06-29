@@ -19,9 +19,8 @@ class Word < ApplicationRecord
   end
 
   def sub_length
-   sub_word.to_s.length
+    sub_word.to_s.length
   end
- 
 
   def algo(string)
     map = {}
@@ -29,23 +28,22 @@ class Word < ApplicationRecord
     start = 0
     i = 0
     result = 0
-    while i < string_chars.length do
-     
-      if map[string_chars[i]] and  map[string_chars[i]] >= start
-      start = map[string_chars[i]] + 1
+    while i < string_chars.length
+
+      if map[string_chars[i]] && (map[string_chars[i]] >= start)
+        start = map[string_chars[i]] + 1
       else
         map[string_chars[i]] = i
         i += 1
 
       end
-      if i - start > result
-        result = i - start
-        longest_sub_word = string[start..i - 1]
-        
-      end
-     
+      next unless i - start > result
+
+      result = i - start
+      longest_sub_word = string[start..i - 1]
+
     end
 
-return longest_sub_word
+    longest_sub_word
   end
 end
