@@ -11,7 +11,6 @@ class WordsController < ApplicationController
   def show
     @words = Word.all
     @word = Word.new
-    @word = Word.find_by_slug(params[:id])
   end
 
   def new
